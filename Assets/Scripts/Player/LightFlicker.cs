@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class LightFlicker : MonoBehaviour
 {
@@ -17,22 +18,67 @@ public class LightFlicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (light.intensity > 0.07 && !incrementing) 
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            decrementLight();
-
-            if (light.intensity <= 0.07)
+            if (light.intensity > 0.07f && !incrementing)
             {
-                incrementing = true;
+                decrementLight();
+
+                if (light.intensity <= 0.07f)
+                {
+                    incrementing = true;
+                }
+            }
+            else if (light.intensity < 0.09f && incrementing)
+            {
+                incrementLight();
+
+                if (light.intensity >= 0.09f)
+                {
+                    incrementing = false;
+                }
             }
         }
-        else if (light.intensity < 0.09 && incrementing)
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2))
         {
-            incrementLight();
-
-            if (light.intensity >= 0.09)
+            if (light.intensity > 0.40f && !incrementing)
             {
-                incrementing = false;
+                decrementLight();
+
+                if (light.intensity <= 0.40f)
+                {
+                    incrementing = true;
+                }
+            }
+            else if (light.intensity < 0.48f && incrementing)
+            {
+                incrementLight();
+
+                if (light.intensity >= 0.48f)
+                {
+                    incrementing = false;
+                }
+            }
+        }
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+        {
+            if (light.intensity > 0.04f && !incrementing)
+            {
+                decrementLight();
+
+                if (light.intensity <= 0.04f)
+                {
+                    incrementing = true;
+                }
+            }
+            else if (light.intensity < 0.07f && incrementing)
+            {
+                incrementLight();
+
+                if (light.intensity >= 0.07f)
+                {
+                    incrementing = false;
+                }
             }
         }
     }

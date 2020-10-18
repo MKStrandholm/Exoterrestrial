@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class StartingSlipgate : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class StartingSlipgate : MonoBehaviour
     float fadeModifier = 0.5f;
     bool ready = false;
     float introDisplacementSpeed = 1.0f;
+
+    public Material unlit;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +87,11 @@ public class StartingSlipgate : MonoBehaviour
         Transform camFix = cam.transform;
         camFix.localPosition = new Vector3(0,0,camFix.transform.localPosition.z);
         cam.transform.localPosition = camFix.localPosition;
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+        {
+            spawnedPlayer.GetComponent<SpriteRenderer>().material = unlit;
+        }
 
         Destroy(gameObject);
     }

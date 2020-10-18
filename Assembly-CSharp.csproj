@@ -63,7 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Planet2\VolcanoFlicker.cs" />
+    <Compile Include="Assets\Scripts\Planet2\FinalKeyController.cs" />
+    <Compile Include="Assets\Scripts\Planet2\FinalKeyFourController.cs" />
+    <Compile Include="Assets\Scripts\Planet2\FinalKeyOneController.cs" />
+    <Compile Include="Assets\Scripts\Planet2\FinalKeyThreeController.cs" />
+    <Compile Include="Assets\Scripts\Planet2\FinalKeyTwoController.cs" />
+    <Compile Include="Assets\Scripts\Planet2\StarCircleButton.cs" />
     <Compile Include="Assets\Scripts\Player\LightFlicker.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHandler.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerTutorialHover.cs" />

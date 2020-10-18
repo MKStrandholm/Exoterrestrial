@@ -1,13 +1,9 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHandler : MonoBehaviour
 {
-    /// <summary>
-    /// 
-    /// 
-    /// variables related to movement
-    /// </summary>
     private float speedModifier = 1f;
     private float sprintModifier = 2f;
     private bool isSprinting = false;

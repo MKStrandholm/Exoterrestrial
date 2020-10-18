@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 5663778108542291162}
   - component: {fileID: 77009039}
   m_Layer: 0
-  m_Name: StartingSlipgate
+  m_Name: Prefab_LevelStartSlipgate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,3 +242,4 @@ MonoBehaviour:
   playerReference: {fileID: 1864045273620061426, guid: 83d2feada285bbd4d962b289ce370efe,
     type: 3}
   targetDes: {fileID: 1564410757}
+  unlit: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
