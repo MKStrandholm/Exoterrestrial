@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHandler : MonoBehaviour
 {
+    private static int playerChoice;
+    private int numberOfChoices = 3;
     private float speedModifier = 1f;
     private float sprintModifier = 2f;
     private bool isSprinting = false;
     private bool inSlipgate = false;
+
 
     private Animator anim;
 
@@ -16,6 +19,10 @@ public class PlayerHandler : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        anim.SetInteger("choice", playerChoice);
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -141,5 +148,20 @@ public class PlayerHandler : MonoBehaviour
     public bool getInSlipgate()
     {
         return inSlipgate;
+    }
+
+    public void setChoice(int option)
+    {
+        playerChoice = option;
+    }
+
+    public int getChoice()
+    {
+        return playerChoice;
+    }
+
+    public int getNumberOfChoices()
+    {
+        return numberOfChoices;
     }
 }

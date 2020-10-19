@@ -63,8 +63,9 @@ public class StartingSlipgate : MonoBehaviour
         Transform tmp = transform;
         tmp.position = new Vector2(tmp.position.x + 0.01f, tmp.position.y);
         spawnedPlayer = Instantiate(playerReference, tmp);
-
         spawnedPlayer.GetComponent<PlayerHandler>().setInSlipgate(true);
+        // spawnedPlayer.GetComponent<Animator>().SetInteger("choice", spawnedPlayer.GetComponent<PlayerHandler>().getChoice());
+        spawnedPlayer.GetComponent<Animator>().SetInteger("choice", 1);
         spawnedPlayer.GetComponent<Animator>().SetInteger("direction", 2);
         spawnedPlayer.GetComponentInChildren<Light2D>().enabled = false;
         ready = true;

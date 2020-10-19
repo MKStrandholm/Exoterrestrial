@@ -69,12 +69,15 @@
     <Compile Include="Assets\Scripts\Planet2\FinalKeyThreeController.cs" />
     <Compile Include="Assets\Scripts\Planet2\FinalKeyTwoController.cs" />
     <Compile Include="Assets\Scripts\Planet2\StarCircleButton.cs" />
+    <Compile Include="Assets\Scripts\Planet3\SparkleDelay.cs" />
     <Compile Include="Assets\Scripts\Player\LightFlicker.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHandler.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerTutorialHover.cs" />
     <Compile Include="Assets\Scripts\Slipgate\SlipgateTrigger.cs" />
     <Compile Include="Assets\Scripts\Slipgate\StartingSlipgate.cs" />
     <Compile Include="Assets\Scripts\Slipgate\TutorialSlipgate.cs" />
+    <Compile Include="Assets\Scripts\UI\CharacterCustomizationButtonHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelIntroduction.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

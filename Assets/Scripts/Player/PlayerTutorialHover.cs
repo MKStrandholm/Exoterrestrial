@@ -20,6 +20,7 @@ public class PlayerTutorialHover : MonoBehaviour
     {
         dialogue = GameObject.Find("PlayerDialogue").GetComponent<Text>();
         sfx = gameObject.GetComponent<AudioSource>();
+        gameObject.GetComponent<PlayerHandler>().setInSlipgate(true);
         StartCoroutine(talk());
     }
     // Update is called once per frame

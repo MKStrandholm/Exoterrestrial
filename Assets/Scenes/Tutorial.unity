@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -963,7 +963,7 @@ MonoBehaviour:
   - Hello, as you can see, I seem to be in a predicament.
   - I've found myself lost in the depths of space, and I need to get back home!
   - You'll need to travel from planet to planet, through various slipgates.
-  - Some of them may be disfunctional and require additional input.
+  - Some of them may be difficult to reach and could require additional input.
   - Good luck, and get me home safe!
 --- !u!82 &1633776676
 AudioSource:

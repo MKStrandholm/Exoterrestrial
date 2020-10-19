@@ -13,7 +13,7 @@ public class SlipgateTrigger : MonoBehaviour
     bool shouldLerp = false;
     float alpha = 1;
     float fadeModifier = 0.5f;
-    static int sceneNumber = 1;
+    static int sceneNumber = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class SlipgateTrigger : MonoBehaviour
                 }
                 catch (Exception e)
                 {
-                    Debug.Log("Couldn't find player");
+                    Debug.Log($"Couldn't find player {e.Message}");
                 }
                 
             }
