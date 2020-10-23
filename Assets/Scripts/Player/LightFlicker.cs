@@ -18,7 +18,7 @@ public class LightFlicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne"))
         {
             if (light.intensity > 0.07f && !incrementing)
             {
@@ -39,7 +39,7 @@ public class LightFlicker : MonoBehaviour
                 }
             }
         }
-        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelTwo"))
         {
             if (light.intensity > 0.40f && !incrementing)
             {
@@ -60,7 +60,7 @@ public class LightFlicker : MonoBehaviour
                 }
             }
         }
-        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(4))
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
         {
             if (light.intensity > 0.04f && !incrementing)
             {

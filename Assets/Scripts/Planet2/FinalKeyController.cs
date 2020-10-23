@@ -14,11 +14,14 @@ public class FinalKeyController : MonoBehaviour
 
     GameObject[] spikes = new GameObject[3];
 
+    AudioSource audio;
+
     private void Start()
     {
         spikes[0] = GameObject.Find("FinalStalagmite1");
         spikes[1] = GameObject.Find("FinalStalagmite2");
         spikes[2] = GameObject.Find("FinalStalagmite3");
+        audio = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -65,5 +68,10 @@ public class FinalKeyController : MonoBehaviour
     public void deactivateKeyFour()
     {
         keyFour = false;
+    }
+
+    public void error()
+    {
+        audio.Play();
     }
 }

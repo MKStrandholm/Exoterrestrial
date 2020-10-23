@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -21,12 +19,18 @@ public class StartingSlipgate : MonoBehaviour
 
     public Material unlit;
 
+    public AudioClip open;
+    public AudioClip close;
+    bool shouldPlayCloseSound = true;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("ready", true);
         lightAnim = GameObject.Find("StartingSlipgateLight").GetComponent<Animator>();
+        gameObject.GetComponent<AudioSource>().clip = open;
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
@@ -49,6 +53,12 @@ public class StartingSlipgate : MonoBehaviour
                 // Done walking
                 if (spawnedPlayer.transform.localPosition == targetDes.transform.localPosition)
                 {
+                    if (shouldPlayCloseSound)
+                    {
+                        gameObject.GetComponent<AudioSource>().clip = close;
+                        gameObject.GetComponent<AudioSource>().Play();
+                        shouldPlayCloseSound = false;
+                    }
                     spawnedPlayer.GetComponent<Animator>().SetBool("walking", false);
                     anim.SetBool("canClose", true);
                     lightAnim.SetBool("closing", true);
@@ -64,7 +74,6 @@ public class StartingSlipgate : MonoBehaviour
         tmp.position = new Vector2(tmp.position.x + 0.01f, tmp.position.y);
         spawnedPlayer = Instantiate(playerReference, tmp);
         spawnedPlayer.GetComponent<PlayerHandler>().setInSlipgate(true);
-        // spawnedPlayer.GetComponent<Animator>().SetInteger("choice", spawnedPlayer.GetComponent<PlayerHandler>().getChoice());
         spawnedPlayer.GetComponent<Animator>().SetInteger("choice", 1);
         spawnedPlayer.GetComponent<Animator>().SetInteger("direction", 2);
         spawnedPlayer.GetComponentInChildren<Light2D>().enabled = false;
@@ -77,23 +86,20 @@ public class StartingSlipgate : MonoBehaviour
         ready = false;
         transform.DetachChildren();
         Destroy(GameObject.Find("TargetDes"));
-
         spawnedPlayer.GetComponent<PlayerHandler>().setInSlipgate(false);
         spawnedPlayer.GetComponentInChildren<Light2D>().enabled = true;
         spawnedPlayer.tag = "Player";
-        GameObject cam = GameObject.Find("Main Camera");
-
-        cam.transform.parent = spawnedPlayer.transform;
-
-        Transform camFix = cam.transform;
-        camFix.localPosition = new Vector3(0,0,camFix.transform.localPosition.z);
-        cam.transform.localPosition = camFix.localPosition;
-
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+        spawnedPlayer.GetComponent<PlayerHandler>().setFinishedLevelStart(true);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
         {
             spawnedPlayer.GetComponent<SpriteRenderer>().material = unlit;
         }
+        StartCoroutine(destroyDelay());
+    }
 
+    IEnumerator destroyDelay()
+    {
+        yield return new WaitForSeconds(0.75f);
         Destroy(gameObject);
     }
 }

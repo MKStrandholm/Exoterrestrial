@@ -13,12 +13,15 @@ public class SlipgateTrigger : MonoBehaviour
     bool shouldLerp = false;
     float alpha = 1;
     float fadeModifier = 0.5f;
-    static int sceneNumber = 2;
+
+    AudioSource audio;
+    bool shouldPlayCloseSound = true;
 
     // Start is called before the first frame update
     void Start()
     {
         lightAnim = GameObject.Find("SlipgateLight").GetComponent<Animator>();
+        audio = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -54,6 +57,11 @@ public class SlipgateTrigger : MonoBehaviour
             {
                 gameObject.GetComponent<Animator>().SetBool("closing", true);
                 lightAnim.SetBool("closing", true);
+                if (shouldPlayCloseSound)
+                {
+                    audio.Play();
+                    shouldPlayCloseSound = false;
+                }
             }
 
             if (player.GetComponentInChildren<Light2D>().intensity > 0)
@@ -74,7 +82,6 @@ public class SlipgateTrigger : MonoBehaviour
 
     public void Finished()
     {
-        sceneNumber++;
-        SceneManager.LoadScene(sceneNumber);
+        SceneManager.LoadScene(6);
     }
 }

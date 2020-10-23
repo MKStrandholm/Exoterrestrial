@@ -11,6 +11,11 @@ public class TutorialSlipgate : MonoBehaviour
     float alpha = 1f;
     float fadeModifier = 0.5f;
 
+    public AudioClip open;
+    public AudioClip close;
+    bool shouldPlayOpenSound = true;
+    bool shouldPlayCloseSound = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +27,12 @@ public class TutorialSlipgate : MonoBehaviour
     {
         if (ready)
         {
+            if (shouldPlayOpenSound)
+            {
+                gameObject.GetComponent<AudioSource>().clip = open;
+                gameObject.GetComponent<AudioSource>().Play();
+                shouldPlayOpenSound = false;
+            }
             gameObject.GetComponent<Animator>().SetBool("opening", true);
 
             if (player.GetComponent<SpriteRenderer>().color.a > 0)
@@ -33,6 +44,12 @@ public class TutorialSlipgate : MonoBehaviour
             else
             {
                 gameObject.GetComponent<Animator>().SetBool("closing", true);
+                if (shouldPlayCloseSound)
+                {
+                    gameObject.GetComponent<AudioSource>().clip = close;
+                    gameObject.GetComponent<AudioSource>().Play();
+                    shouldPlayCloseSound = false;
+                }
             }
         }
     }
@@ -50,6 +67,6 @@ public class TutorialSlipgate : MonoBehaviour
     IEnumerator levelDelay()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(6);
     }
 }

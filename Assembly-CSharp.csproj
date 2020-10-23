@@ -69,15 +69,33 @@
     <Compile Include="Assets\Scripts\Planet2\FinalKeyThreeController.cs" />
     <Compile Include="Assets\Scripts\Planet2\FinalKeyTwoController.cs" />
     <Compile Include="Assets\Scripts\Planet2\StarCircleButton.cs" />
+    <Compile Include="Assets\Scripts\Planet3\BlueGemController.cs" />
+    <Compile Include="Assets\Scripts\Planet3\BlueRuneController.cs" />
+    <Compile Include="Assets\Scripts\Planet3\GreenGemController.cs" />
+    <Compile Include="Assets\Scripts\Planet3\GreenRuneController.cs" />
+    <Compile Include="Assets\Scripts\Planet3\IceSlipperyController.cs" />
+    <Compile Include="Assets\Scripts\Planet3\ParticleFollowCamera.cs" />
+    <Compile Include="Assets\Scripts\Planet3\RedGemController.cs" />
+    <Compile Include="Assets\Scripts\Planet3\RedRuneController.cs" />
     <Compile Include="Assets\Scripts\Planet3\SparkleDelay.cs" />
     <Compile Include="Assets\Scripts\Player\LightFlicker.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHandler.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerLoadingScreenHandler.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMainMenuHover.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerTutorialHover.cs" />
+    <Compile Include="Assets\Scripts\Slipgate\SlipgateFinalLevel.cs" />
     <Compile Include="Assets\Scripts\Slipgate\SlipgateTrigger.cs" />
     <Compile Include="Assets\Scripts\Slipgate\StartingSlipgate.cs" />
     <Compile Include="Assets\Scripts\Slipgate\TutorialSlipgate.cs" />
+    <Compile Include="Assets\Scripts\System\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\System\MouseSwitch.cs" />
+    <Compile Include="Assets\Scripts\System\MusicHandler.cs" />
+    <Compile Include="Assets\Scripts\System\OneTimeMusicChanger.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterCustomizationButtonHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\FadeToAndFromBlackPanelController.cs" />
     <Compile Include="Assets\Scripts\UI\LevelIntroduction.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuButton.cs" />
+    <Compile Include="Assets\Scripts\UI\ReturnToMainMenu.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -619,6 +637,10 @@
       <Project>{5FF7EEC4-63D1-2C3E-BA4F-DAF1E949FD65}</Project>
       <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.2D.PixelPerfect.Editor.csproj">
+      <Project>{ABE7A78D-B244-346C-E328-8B473FB261DF}</Project>
+      <Name>Unity.2D.PixelPerfect.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
       <Project>{317556A2-B1C6-6A5E-B80E-993193373645}</Project>
       <Name>Unity.RenderPipelines.Universal.Shaders</Name>
@@ -694,6 +716,10 @@
     <ProjectReference Include="Unity.2D.Tilemap.Editor.csproj">
       <Project>{BDAB34AF-3DC6-A32E-6BE7-644E9D51CA32}</Project>
       <Name>Unity.2D.Tilemap.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.PixelPerfect.csproj">
+      <Project>{6FF498E0-2E60-4DE5-B764-F62A9DCC869E}</Project>
+      <Name>Unity.2D.PixelPerfect</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
       <Project>{F18B1D97-00AD-E512-4B03-41124A1A5A22}</Project>

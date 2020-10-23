@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
@@ -28,10 +26,13 @@ public class StarCircleButton : MonoBehaviour
     private GameObject particle;
     bool particleFound = false;
 
+    AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
         light = GetComponentInChildren<Light2D>();
+        audio = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -80,6 +81,8 @@ public class StarCircleButton : MonoBehaviour
             {
                 player = collision.gameObject;
             }
+
+            audio.Play();
 
             readyToChange = true;
 
